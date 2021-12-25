@@ -1,7 +1,7 @@
 {
-  "name": "JWidgets",
+  "name": "jwidgets",
   "version": "0.1.0",
-  "homepage": "https://jjameswwang.github.io/jwidgets/",
+  "homepage": "https://jjameswwang.github.io/jwidgets",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
