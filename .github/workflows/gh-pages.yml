@@ -12,6 +12,4 @@ jobs:
         with:
           node-version: '16'
       - run: npm ci
-      - run: |
-          git config user.name "JJamesWWang" && git config user.email "JJamesWWang@gmail.com"
-          npm run deploy
+      - run: npm run deploy
