@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - run: |
+          npm ci
+          npm run build
+      - uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
-          node-version: "16"
-      - run: npm ci
-      - run: git config user.email "JJamesWWang@gmail.com"
-      - run: git config user.name "JJamesWWang"
-      - run: npm run deploy
+          branch: gh-pages
+          folder: build
