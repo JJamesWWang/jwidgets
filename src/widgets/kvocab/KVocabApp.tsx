@@ -1,7 +1,6 @@
 import { useState } from "react";
 import InputForm from "./components/InputForm";
 import Analysis from "./components/Analysis";
-import classes from "./KVocabApp.module.css";
 
 export type AnalysisData = {
   exact: string[];
@@ -22,7 +21,7 @@ function KVocabApp() {
   };
 
   return (
-    <div className={classes.KVocabApp}>
+    <div>
       <InputForm onAnalysisFetched={onAnalysisFetched} />
       <Analysis {...analysis} />
     </div>

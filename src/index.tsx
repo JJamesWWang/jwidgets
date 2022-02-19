@@ -6,15 +6,18 @@ import "./index.css";
 
 import App from "./App";
 import KVocabApp from "./widgets/kvocab/KVocabApp";
+import { MantineProvider } from "@mantine/core";
 
 render(
   <StrictMode>
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<App />}></Route>
-        <Route path="/kvocab" element={<KVocabApp />}></Route>
-      </Routes>
-    </HashRouter>
+    <MantineProvider theme={{ colorScheme: "dark" }}>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<App />}></Route>
+          <Route path="/kvocab" element={<KVocabApp />}></Route>
+        </Routes>
+      </HashRouter>
+    </MantineProvider>
   </StrictMode>,
   document.getElementById("root")
 );

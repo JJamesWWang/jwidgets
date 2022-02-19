@@ -1,27 +1,31 @@
+import { Center, List, Title } from "@mantine/core";
 import { FC } from "react";
 import { AnalysisData } from "../KVocabApp";
-import classes from "./Analysis.module.css";
 
 const Analysis: FC<AnalysisData> = (props) => {
   const generateWordList = (wordsCategory: string, words: string[]) => {
     return (
-      <div className={classes.Analysis}>
-        <h3>{`${wordsCategory}: ${words.length}`}</h3>
-        <ol>
+      <div className="mt-5">
+        <Center>
+          <Title order={3}>{`${wordsCategory}: ${words.length}`}</Title>
+        </Center>
+        <List type="order">
           {words.map((word) => (
-            <li key={word}>{word}</li>
+            <List.Item key={word}>
+              <Center>{word}</Center>
+            </List.Item>
           ))}
-        </ol>
+        </List>
       </div>
     );
   };
 
   return (
-    <>
+    <div className="ml-auto mr-auto">
       {props.exact && generateWordList("Words matched exactly", props.exact)}
       {props.almost && generateWordList("Words almost matched", props.almost)}
       {props.unmatched && generateWordList("Words not matched", props.unmatched)}
-    </>
+    </div>
   );
 };
 
