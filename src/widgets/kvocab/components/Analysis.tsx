@@ -1,9 +1,13 @@
 import { Center, List, Title } from "@mantine/core";
 import { FC } from "react";
-import { AnalysisData } from "../KVocabApp";
+import { AnalysisData, Word } from "../KVocabApp";
 
 const Analysis: FC<AnalysisData> = (props) => {
-  const generateWordList = (wordsCategory: string, words: string[]) => {
+  const generateWordList = (
+    wordsCategory: string,
+    words: Word[],
+    format?: (word: Word) => string
+  ) => {
     return (
       <div className="mt-5">
         <Center>
@@ -11,8 +15,10 @@ const Analysis: FC<AnalysisData> = (props) => {
         </Center>
         <List type="order">
           {words.map((word) => (
-            <List.Item key={word}>
-              <Center>{word}</Center>
+            <List.Item key={word.korean}>
+              <Center>
+                {format ? format(word) : `${word.korean} - ${word.english}`}
+              </Center>
             </List.Item>
           ))}
         </List>
@@ -23,7 +29,13 @@ const Analysis: FC<AnalysisData> = (props) => {
   return (
     <div className="ml-auto mr-auto">
       {props.exact && generateWordList("Words matched exactly", props.exact)}
-      {props.almost && generateWordList("Words almost matched", props.almost)}
+      {props.almost &&
+        generateWordList(
+          "Words almost matched",
+          props.almost,
+          (word) =>
+            `${word.original} almost matched with ${word.korean} - ${word.english}`
+        )}
       {props.unmatched && generateWordList("Words not matched", props.unmatched)}
     </div>
   );

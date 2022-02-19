@@ -12,7 +12,8 @@ const InputForm: FC<{ onAnalysisFetched: (data: AnalysisData) => void }> = (prop
       if (!essayRef.current) {
         throw Error("Invalid essayRef");
       }
-      const response = await fetch("https://jwidgets.herokuapp.com/wordchecker/", {
+      // const response = await fetch("https://jwidgets.herokuapp.com/wordchecker/", {
+      const response = await fetch("http://localhost:8000/wordchecker/", {
         method: "POST",
         body: essayRef.current.value,
       });
