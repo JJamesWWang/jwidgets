@@ -7,7 +7,7 @@
     "@mantine/core": "^3.6.9",
     "@mantine/hooks": "^3.6.9",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^12.1.2",
+    "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.17",
